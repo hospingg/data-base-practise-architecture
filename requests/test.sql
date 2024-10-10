@@ -1,4 +1,4 @@
--- Створення таблиці для Ліків
+
 CREATE TABLE medicines (
     id SERIAL PRIMARY KEY,
     active_ingredient VARCHAR(255) NOT NULL,
@@ -7,14 +7,12 @@ CREATE TABLE medicines (
     stock_quantity INT NOT NULL
 );
 
--- Створення таблиці для Аптек
 CREATE TABLE pharmacies (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     adress VARCHAR(400) NOT NULL
 );
 
--- Створення таблиці для Користувачів
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
@@ -25,7 +23,6 @@ CREATE TABLE users (
 DELETE FROM medicines;
 
 
--- Створення таблиці для Замовлень
 CREATE TABLE orders (
     id SERIAL PRIMARY KEY,
     user_id INT NOT NULL,
@@ -39,7 +36,6 @@ CREATE TABLE orders (
 INSERT INTO orders (user_id, pharmacy_id)
 VALUES (10, 12);
 
--- Створення таблиці для продажу Ліків в Аптеках
 CREATE TABLE pharmacy_medicines (
     pharmacy_id INT NOT NULL,
     medicine_id INT NOT NULL,
@@ -52,8 +48,6 @@ CREATE TABLE pharmacy_medicines (
 INSERT INTO pharmacy_medicines (pharmacy_id, medicine_id, stock_quantity)
 VALUES (12, 68, 180);
 
-
--- Створення таблиці для Позицій Замовлення
 CREATE TABLE order_items (
     id SERIAL PRIMARY KEY,
     order_id INT NOT NULL,
