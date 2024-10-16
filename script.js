@@ -11,11 +11,11 @@ async function start() {
     // const usersArr = await getUsers()
     // const usersResult = await User.bulkCreate(usersArr);
 
-    // const pharmacyArr = await getPharmacy()
-    // const result = await Pharmacy.bulkCreate(pharmacyArr);
+    const pharmacyArr = await getPharmacy()
+    const result = await Pharmacy.bulkCreate(pharmacyArr);
 
-    const medicineArr = await getMedicines()
-    const result = await Medicine.bulkCreate(medicineArr);
+    // const medicineArr = await getMedicines()
+    // const result = await Medicine.bulkCreate(medicineArr);
 
     // const result = await MedicineToUser.bulkCreate();
 

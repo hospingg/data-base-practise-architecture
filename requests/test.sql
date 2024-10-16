@@ -20,7 +20,6 @@ CREATE TABLE users (
     password VARCHAR(255) NOT NULL
 );
 
-DELETE FROM medicines;
 
 
 CREATE TABLE orders (
@@ -28,13 +27,12 @@ CREATE TABLE orders (
     user_id INT NOT NULL,
     pharmacy_id INT NOT NULL,
     order_date DATE NOT NULL DEFAULT CURRENT_DATE,
-    FOREIGN KEY (user_id) REFERENCES Users(id),
-    FOREIGN KEY (pharmacy_id) REFERENCES Pharmacies(id)
+    FOREIGN KEY (user_id) REFERENCES users(id),
 );
+DROP TABLE medicines
 
-
-INSERT INTO orders (user_id, pharmacy_id)
-VALUES (10, 12);
+-- INSERT INTO orders (user_id, pharmacy_id)
+-- VALUES (10, 12);
 
 CREATE TABLE pharmacy_medicines (
     pharmacy_id INT NOT NULL,
@@ -45,8 +43,8 @@ CREATE TABLE pharmacy_medicines (
     FOREIGN KEY (medicine_id) REFERENCES medicines(id)
 );
 
-INSERT INTO pharmacy_medicines (pharmacy_id, medicine_id, stock_quantity)
-VALUES (12, 68, 180);
+-- INSERT INTO pharmacy_medicines (pharmacy_id, medicine_id, stock_quantity)
+-- VALUES (12, 68, 180);
 
 CREATE TABLE order_items (
     id SERIAL PRIMARY KEY,
@@ -58,8 +56,8 @@ CREATE TABLE order_items (
     FOREIGN KEY (pharmacy_id, medicine_id) REFERENCES pharmacy_medicines(pharmacy_id, medicine_id)
 );
 
-INSERT INTO order_items (order_id, pharmacy_id, medicine_id, quantity, price_at_purchase)
-VALUES (2, 12, 68, 3, 19.99);
+-- INSERT INTO order_items (order_id, pharmacy_id, medicine_id, quantity, price_at_purchase)
+-- VALUES (2, 12, 68, 3, 19.99);
 
 DROP TABLE Medicines
 
